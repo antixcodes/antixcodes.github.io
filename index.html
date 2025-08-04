@@ -1,48 +1,179 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Samarth's Portfolio</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            text-align: center;
-            background-color: #f0f0f0;
-        }
-        header {
-            background-color: #333;
-            color: white;
-            padding: 1em;
-        }
-        main {
-            padding: 2em;
-        }
-        footer {
-            background-color: #333;
-            color: white;
-            padding: 1em;
-            position: fixed;
-            bottom: 0;
-            width: 100%;
-        }
-    </style>
-</head>
-<body>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Samarth – Portfolio</title>
+        <script src="https://cdn.tailwindcss.com"></script>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Fira+Code:wght@400;600&display=swap" rel="stylesheet" />
+        <style>
+            body {
+                font-family: 'Poppins', 'Fira Code', monospace, sans-serif;
+            }
+            .blob {
+                position: absolute;
+                width: 320px;
+                height: 320px;
+                border-radius: 50%;
+                filter: blur(110px);
+                opacity: 0.45;
+                z-index: -1;
+                animation: float 18s ease-in-out infinite;
+            }
+            .blob2 {
+                width: 220px;
+                height: 220px;
+                left: 60%;
+                top: 60%;
+                background: linear-gradient(135deg, #38bdf8 0%, #a78bfa 100%);
+                opacity: 0.35;
+                filter: blur(80px);
+                animation: float2 22s ease-in-out infinite;
+            }
+            @keyframes float {
+                0%, 100% { transform: translateY(0px) translateX(0px);}
+                50% { transform: translateY(-60px) translateX(60px);}
+            }
+            @keyframes float2 {
+                0%, 100% { transform: translateY(0px) translateX(0px);}
+                50% { transform: translateY(40px) translateX(-40px);}
+            }
+            .glass {
+                background: linear-gradient(135deg, rgba(255,255,255,0.13) 0%, rgba(255,255,255,0.08) 100%);
+                box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.18);
+                border: 1.5px solid rgba(255,255,255,0.18);
+            }
+            .divider {
+                height: 2px;
+                width: 60px;
+                margin: 1.5rem auto;
+                background: linear-gradient(90deg, #a78bfa 0%, #38bdf8 100%);
+                border-radius: 9999px;
+                opacity: 0.7;
+            }
+        </style>
+        <link
+            rel="icon"
+            type="image/png"
+            href="https://media.discordapp.net/attachments/1400710016205328509/1401958672531329156/5f5f18d04fb66894554753.jpg?ex=68922b42&is=6890d9c2&hm=b4bd7a27aeb4d46a1962e64d5f77120170181422defad631e9befe8eda63540f&=&format=webp&width=281&height=281"
+        />
+    </head>
+    <body class="relative bg-gradient-to-br from-[#0f172a] via-[#1e293b] to-[#312e81] min-h-screen flex items-center justify-center overflow-hidden text-white">
+        <div class="blob bg-purple-500 top-10 left-10"></div>
+        <div class="blob bg-indigo-500 bottom-10 right-10"></div>
+        <div class="blob blob2 absolute"></div>
+        <div class="glass rounded-3xl shadow-2xl max-w-xl w-full text-center p-10 border border-white/20 backdrop-blur-2xl relative z-10">
+            <div class="flex flex-col items-center">
+                <img
+                    class="w-32 h-32 mx-auto rounded-full object-cover border-4 border-white shadow-lg transition-transform duration-300 hover:scale-105"
+                    src="https://media.discordapp.net/attachments/1400710016205328509/1401958672531329156/5f5f18d04fb66894554753.jpg?ex=68922b42&is=6890d9c2&hm=b4bd7a27aeb4d46a1962e64d5f77120170181422defad631e9befe8eda63540f&=&format=webp&width=281&height=281"
+                    alt="Samarth"
+                />
+                <h1 id="typing" class="text-4xl font-semibold mt-6 tracking-tight bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
+                    <span id="typing-text"></span>
+                </h1>
+                <style>
+                #typing-text .cursor {
+                    display: inline-block;
+                    width: 0.4rem;
+                    height: 1.5rem;
+                    margin-left: 0.2rem;
+                    background: linear-gradient(to right, #60a5fa, #c084fc, #f472b6);
+                    border-radius: 2px;
+                    animation: blink 1s infinite ease-in-out;
+                    vertical-align: middle;
+                }
 
-    <header>
-        <h1>Welcome to Samarth's Portfolio</h1>
-    </header>
+                @keyframes blink {
+                    0%, 100% { opacity: 0.8; }
+                    50% { opacity: 0; }
+                }
+                </style>
 
-    <main>
-        <p>idk.</p>
-    </main>
+                <div id="typing-text" class="text-white text-3xl font-semibold"></div>
 
-    <footer>
-        <p>© 2025 Samarths Website</p>
-    </footer>
+                <script>
+                const text = "Samarth.";
+                const typingText = document.getElementById("typing-text");
+                let i = 0;
+                let typing = true;
 
-</body>
+                function updateText() {
+                    typingText.innerHTML =
+                    text.slice(0, i) + `<span class="cursor"></span>`;
+                }
+
+                function typeLoop() {
+                    if (typing) {
+                    if (i < text.length) {
+                        i++;
+                        updateText();
+                        setTimeout(typeLoop, 120);
+                    } else {
+                        typing = false;
+                        setTimeout(typeLoop, 1500);
+                    }
+                    } else {
+                    if (i > 0) {
+                        i--;
+                        updateText();
+                        setTimeout(typeLoop, 60);
+                    } else {
+                        typing = true;
+                        setTimeout(typeLoop, 800); 
+                    }
+                    }
+                }
+
+                updateText();
+                typeLoop();
+                </script>
+
+                <p class="text-gray-200 text-lg mt-2 font-mono tracking-wide bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent animate-fade-in-up shadow-lg drop-shadow-md transition-transform duration-300 hover:scale-105">
+                    <span class="inline-block animate-pulse">Full Stack Developer</span>
+                    <span class="mx-2 text-white/50">•</span>
+                    <span class="inline-block animate-pulse delay-150">Python Developer</span>
+                </p>
+                <style>
+                    @keyframes fade-in-up {
+                        0% {
+                            opacity: 0;
+                            transform: translateY(20px);
+                        }
+                        100% {
+                            opacity: 1;
+                            transform: translateY(0);
+                        }
+                    }
+                    .animate-fade-in-up {
+                        animation: fade-in-up 1s cubic-bezier(0.23, 1, 0.32, 1) both;
+                    }
+                </style>
+                <div class="divider"></div>
+                <div class="flex justify-center gap-7 mt-4">
+                    <a href="https://github.com/antixcodes" target="_blank" aria-label="GitHub" class="transition-transform hover:scale-110">
+                        <svg class="w-7 h-7 text-gray-300 hover:text-white" fill="currentColor" viewBox="0 0 24 24">
+                            <path
+                                d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.438 9.8 8.205 11.385.6.113.82-.263.82-.583 0-.288-.01-1.05-.015-2.06-3.338.726-4.042-1.61-4.042-1.61-.546-1.387-1.333-1.757-1.333-1.757-1.09-.745.082-.73.082-.73 1.204.084 1.84 1.237 1.84 1.237 1.07 1.834 2.807 1.304 3.492.997.108-.775.42-1.305.763-1.605-2.665-.305-5.466-1.332-5.466-5.93 0-1.31.47-2.38 1.235-3.22-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.3 1.23a11.5 11.5 0 0 1 3-.405c1.02.005 2.045.14 3 .405 2.29-1.552 3.295-1.23 3.295-1.23.654 1.652.243 2.873.12 3.176.77.84 1.23 1.91 1.23 3.22 0 4.61-2.807 5.625-5.48 5.92.43.37.814 1.096.814 2.21 0 1.595-.015 2.88-.015 3.27 0 .32.216.698.825.58C20.565 21.795 24 17.29 24 12c0-6.63-5.37-12-12-12z"
+                            />
+                        </svg>
+                    </a>
+                    <a href="https://discord.com/users/773849193587539968" target="_blank" aria-label="Discord" class="transition-transform hover:scale-110">
+                        <svg class="w-7 h-7 text-indigo-400 hover:text-indigo-500" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M20.317 4.3698a19.7913 19.7913 0 00-4.8851-1.5152.0741.0741 0 00-.0785.0371c-.211.3753-.4447.8648-.6083 1.2495-1.8447-.2762-3.68-.2762-5.4868 0-.1636-.3933-.4058-.8742-.6177-1.2495a.077.077 0 00-.0785-.0371c-1.5882.3516-3.157.9015-4.8852 1.5152a.0699.0699 0 00-.0321.0277C.5334 9.0458-.319 13.5799.0992 18.0578a.0824.0824 0 00.0312.0561c2.0528 1.5076 4.0413 2.4228 5.9929 3.0294a.0777.0777 0 00.0842-.0276c.4616-.6304.8731-1.2952 1.226-1.9942a.076.076 0 00-.0416-.1057c-.6528-.2476-1.2743-.5495-1.8722-.8923a.077.077 0 01-.0076-.1277c.1258-.0943.2517-.1923.3718-.2914a.0743.0743 0 01.0776-.0105c3.9278 1.7933 8.18 1.7933 12.0614 0a.0739.0739 0 01.0785.0095c.1202.099.246.1981.3728.2924a.077.077 0 01-.0066.1276 12.2986 12.2986 0 01-1.873.8914.0766.0766 0 00-.0407.1067c.3604.698.7719 1.3628 1.225 1.9932a.076.076 0 00.0842.0286c1.961-.6067 3.9495-1.5219 6.0023-3.0294a.077.077 0 00.0312-.0552c.5004-5.177-.8382-9.6739-3.5485-13.6601a.061.061 0 00-.0312-.0286zM8.0206 15.3312c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9555-2.4189 2.157-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.4189 0 1.3332-.9555 2.419-2.1569 2.419zm7.9748 0c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9554-2.4189 2.1569-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.4189 0 1.3332-.946 2.419-2.1568 2.419Z"/>
+                        </svg>
+                    </a>
+                    <a href="https://t.me/samarthcodes" target="_blank" aria-label="Telegram" class="transition-transform hover:scale-110">
+                        <svg class="w-7 h-7 text-sky-400 hover:text-sky-500" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M9.969 16.569c-.391 0-.319-.148-.45-.516l-1.125-3.709L17.25 7.5c.256-.176.016-.274-.199-.198L6.75 11.625 2.812 10.5c-.422-.131-.429-.422.09-.625l17.014-6.568c.391-.145.734.094.617.615l-2.898 13.63c-.109.48-.438.59-.887.367l-4.902-3.615-2.358 2.281z"/>
+                        </svg>
+                    </a>
+                </div>
+                <p class="text-sm text-gray-200 max-w-md mx-auto mt-8 leading-relaxed font-mono">
+                    <span class="text-blue-300">Experienced in React, Next.js, Node.js, and modern design systems.</span>
+                </p>
+            </div>
+        </div>
+    </body>
 </html>
