@@ -65,90 +65,107 @@
         <div class="blob blob2 absolute"></div>
         <div class="glass rounded-3xl shadow-2xl max-w-xl w-full text-center p-10 border border-white/20 backdrop-blur-2xl relative z-10">
             <div class="flex flex-col items-center">
-                <img
-                    class="w-32 h-32 mx-auto rounded-full object-cover border-4 border-white shadow-lg transition-transform duration-300 hover:scale-105"
-                    src="https://media.discordapp.net/attachments/1400710016205328509/1401958672531329156/5f5f18d04fb66894554753.jpg?ex=68922b42&is=6890d9c2&hm=b4bd7a27aeb4d46a1962e64d5f77120170181422defad631e9befe8eda63540f&=&format=webp&width=281&height=281"
-                    alt="Samarth"
-                />
-                <h1 id="typing" class="text-4xl font-semibold mt-6 tracking-tight bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
-                    <span id="typing-text"></span>
-                </h1>
-                <style>
-                #typing-text .cursor {
-                    display: inline-block;
-                    width: 0.4rem;
-                    height: 1.5rem;
-                    margin-left: 0.2rem;
-                    background: linear-gradient(to right, #60a5fa, #c084fc, #f472b6);
-                    border-radius: 2px;
-                    animation: blink 1s infinite ease-in-out;
-                    vertical-align: middle;
-                }
+            <img
+                class="w-32 h-32 mx-auto rounded-full object-cover border-4 border-white shadow-lg transition-transform duration-300 hover:scale-105"
+                src="https://media.discordapp.net/attachments/1373616394477768737/1401984745591668786/Screenshot_2025-08-04_225638.png?ex=6892438a&is=6890f20a&hm=81db9c3c228275474b734e5d3a34f240153b9ecda0df11b1757fc13165feabe7&=&format=webp&quality=lossless&width=512&height=456"
+                alt="Samarth"
+            />
+            <h2 class="text-2xl md:text-3xl font-bold text-white/90 mt-4 mb-2 tracking-tight" style="font-family: 'Poppins', sans-serif; letter-spacing: 0.02em;">
+                Hello, I am
+            </h2>
+            <h1 id="typing" class="text-4xl font-semibold mt-2 tracking-tight bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
+                <span id="typing-text"></span>
+            </h1>
+            <style>
+            #typing-text .cursor {
+                display: inline-block;
+                width: 0.4rem;
+                height: 2.3rem;
+                margin-left: 0.2rem;
+                background: white;
+                border-radius: 2px;
+                animation: blink 1s infinite ease-in-out;
+                vertical-align: middle;
+            }
 
-                @keyframes blink {
-                    0%, 100% { opacity: 0.8; }
-                    50% { opacity: 0; }
-                }
-                </style>
+            @keyframes blink {
+                0%, 100% { opacity: 0.8; }
+                50% { opacity: 0; }
+            }
+            </style>
 
-                <div id="typing-text" class="text-white text-3xl font-semibold"></div>
 
-                <script>
-                const text = "Samarth.";
-                const typingText = document.getElementById("typing-text");
-                let i = 0;
-                let typing = true;
+            <div id="typing-text" class="text-white text-3xl font-semibold"></div>
+            <script>    
+            const text = "Samarth.";
+            const typingText = document.getElementById("typing-text");
+            let i = 0;
+            let typing = true;
 
-                function updateText() {
-                    typingText.innerHTML =
-                    text.slice(0, i) + `<span class="cursor"></span>`;
-                }
+            function updateText() {
+                typingText.innerHTML =
+                text.slice(0, i) + `<span class="cursor"></span>`;
+            }
 
-                function typeLoop() {
-                    if (typing) {
-                    if (i < text.length) {
-                        i++;
-                        updateText();
-                        setTimeout(typeLoop, 120);
-                    } else {
-                        typing = false;
-                        setTimeout(typeLoop, 1500);
-                    }
-                    } else {
-                    if (i > 0) {
-                        i--;
-                        updateText();
-                        setTimeout(typeLoop, 60);
-                    } else {
-                        typing = true;
-                        setTimeout(typeLoop, 800); 
-                    }
-                    }
-                }
-
+            function typeLoop() {
+                if (typing) {
+                if (i < text.length) {
+                i++;
                 updateText();
-                typeLoop();
-                </script>
+                setTimeout(typeLoop, 120);
+                } else {
+                typing = false;
+                setTimeout(typeLoop, 1500);
+                }
+                } else {
+                if (i > 0) {
+                i--;
+                updateText();
+                setTimeout(typeLoop, 60);
+                } else {
+                typing = true;
+                setTimeout(typeLoop, 800); 
+                }
+                }
+            }
 
-                <p class="text-gray-200 text-lg mt-2 font-mono tracking-wide bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent animate-fade-in-up shadow-lg drop-shadow-md transition-transform duration-300 hover:scale-105">
-                    <span class="inline-block animate-pulse">Full Stack Developer</span>
-                    <span class="mx-2 text-white/50">•</span>
-                    <span class="inline-block animate-pulse delay-150">Python Developer</span>
-                </p>
-                <style>
-                    @keyframes fade-in-up {
-                        0% {
-                            opacity: 0;
-                            transform: translateY(20px);
-                        }
-                        100% {
-                            opacity: 1;
-                            transform: translateY(0);
-                        }
-                    }
-                    .animate-fade-in-up {
-                        animation: fade-in-up 1s cubic-bezier(0.23, 1, 0.32, 1) both;
-                    }
+            updateText();
+            typeLoop();
+            </script>
+
+            <p class="text-gray-200 text-lg mt-2 font-mono tracking-wide bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent animate-fade-in-up shadow-lg drop-shadow-md transition-transform duration-300 hover:scale-105"
+               style="animation-delay: 0.5s; animation-fill-mode: both;">
+                <span class="inline-block animate-pulse">Full Stack Developer</span>
+                <span class="mx-2 text-white/50">•</span>
+                <span class="inline-block animate-pulse delay-150">Python Developer</span>
+            </p>
+            <style>
+            @keyframes fade-in-up {
+                0% {
+                    opacity: 0.35;
+                    transform: translateY(20px);
+                }
+                100% {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            }
+            .animate-fade-in-up {
+                animation: fade-in-up 1s cubic-bezier(0.23, 1, 0.32, 1) both;
+            }
+                @keyframes fade-in-up {
+                0% {
+                    opacity: 0;
+                    transform: translateY(20px);
+                }
+                100% {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+                }
+                .animate-fade-in-up {
+                animation: fade-in-up 1s cubic-bezier(0.23, 1, 0.32, 1) both;
+                }
                 </style>
                 <div class="divider"></div>
                 <div class="flex justify-center gap-7 mt-4">
